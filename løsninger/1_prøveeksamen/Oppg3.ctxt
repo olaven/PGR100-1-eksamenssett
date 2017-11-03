@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Oppg3
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=
+comment2.target=int[]\ lotto()
+comment3.params=list\ num
+comment3.target=boolean\ intContains(int[],\ int)
+numComments=4
