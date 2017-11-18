@@ -1,88 +1,70 @@
-//dette er oppgave 3
 public class PhoneCard{
-
-  public static void main(String[] args){
-
+  public static void main(String[] args) {
+    PhoneCard pc = new PhoneCard();
   }
-  //fields
-  private String id;
 
-  private float credit;
-  private float charge;
-  private float minutes;
-  //constructors
+  //beløpet det kan ringes for
+  private double credit;
+  //pris per ringeminutt
+  private double charge;
+  //en unik id
+  private String id;
+  //antall ringeminutter det er ringt for
+  private double minutes;
+
   public PhoneCard(){
-    setId("unknown");
-    setCredit(-1);
+    setCredit(0);
     setCharge(-1);
+    setId(null);
     setMinutes(0);
   }
-  public PhoneCard(String id, float credit, float charge){
-    setId(id);
+  public PhoneCard(double credit, double charge, String id){
     setCredit(credit);
     setCharge(charge);
+    setId(id);
     setMinutes(0);
   }
-  //methods
-  public void call(float callDuration){
-    //"dette antallet skal metoden gange med prisen per ringeminutt"
-    float cost = callDuration * charge;
 
-    //"..skal så trekkes fra credit"
+  public double call(double duration){
 
-    /*"hvis credit ikke er stor nok.. beregne hvor
-    mange ringeminutter credit dekker, og endre berørte
-    atributter."*/
-
-    if(aboveZero(credit - cost)){
-      setCredit(credit - cost);
+    double newCredit = (credit - (duration * charge));
+    if(newCredit > 0){
+      setCredit(newCredit);
+      setMinutes(minutes - duration);
     } else {
-      //CONTINE HERE, NOT DONE 
+      double minutesCovered = charge/credit;
+
+      setCredit(0);
+      setMinutes(minutes - minutesCovered);
     }
+
+    return (charge * minutes);
   }
+
   //set-methods
-  public void setId(String id){
-    this.id = id;
+  private void setCredit(double credit){
+    this.credit = credit;
   }
-  public void setCredit(float credit){
-    if(aboveZero(credit)){
-      this.credit = credit;
-    }
+  private void setCharge(double charge){
+    this.charge = charge;
   }
-  public void setCharge(float charge){
-    if(aboveZero(charge)){
-      this.credit = credit;
-    }
+  private void setId(String id){
+    this.id = id ;
   }
-  public void setMinutes(float minutes){
-    if(aboveZero(minutes)){
-      this.minutes = minutes;
-    }
+  private void setMinutes(double minutes){
+    this.minutes = minutes;
   }
   //get-methods
+  public double getCredit(){
+    return credit;
+  }
+  public double getCharge(){
+    return charge;
+  }
   public String getId(){
     return id;
   }
-  public float getCredit(){
-    return credit;
-  }
-  public float getCharge(){
-    return charge;
-  }
-  public float getMinutes(){
+  public double getMinutes(){
     return minutes;
-  }
-
-  public Boolean aboveZero(int num){
-    if(num > 0){
-      return true;
-    }
-    return false;
-  }
-  public Boolean aboveZero(float num){
-    if(num > 0){
-      return true;
-    }
-    return false;
   }
 }

@@ -24,7 +24,7 @@ for (int i = 1; i <= 5; i++) {
   System.out.println();
 }
 
-output blir ingenting fordi System.out.println() ikke har fått tilsendt et argument.
+output blir alle tall mellom og med 1 til 5, ganget med alle tall mellom og med 1 til 6.
 
 c)
 Studer koden i Vedlegg 1 og 2 og svar på følgende spørsmål:
@@ -103,4 +103,4 @@ Studer koden i Vedlegg 1 og 2 og svar på følgende spørsmål:
         * 11 -> pricePerUnit, gjennom setPricePerUnit -> 18
       * vedlegg 2
         * 52 -> item1
-        * 55 -> name 
+        * 55 -> name
