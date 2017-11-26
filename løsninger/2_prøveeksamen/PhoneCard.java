@@ -30,14 +30,13 @@ public class PhoneCard{
     double newCredit = (credit - (duration * charge));
     if(newCredit > 0){
       setCredit(newCredit);
-      setMinutes(minutes - duration);
+      setMinutes(minutes + duration);
     } else {
       double minutesCovered = charge/credit;
 
       setCredit(0);
       setMinutes(minutes - minutesCovered);
     }
-
     return (charge * minutes);
   }
 
