@@ -24,8 +24,7 @@ public class Oppg3{
     return counter;
   }
   public static int[] rydd(int[] liste, int x){
-    int[] returListe; 
-
+    int[] returListe = new int[100];    
     for(int i = 0; i < liste.length; i++){
       if(liste[i] != x){
         returListe[returListe.length] = liste[i];
