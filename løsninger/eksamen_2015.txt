@@ -1,0 +1,94 @@
+1:
+a.
+IV -> 0.5
+
+b.
+w = (x / y) + ((x-y) / (x+y));
+
+2:
+a.
+public boolean checkBinary(int[] list){
+  for(int i = 0; i < list.length; i++){
+    if(!(list[i] != 1 || list[i] != 0)){
+      return false;
+    }
+  }
+  return true;
+}
+
+b.
+public int found(int[] list, int num){
+  for(int i = 0; i < list.length; i++){
+    if(list[i] == num){
+      return i;
+    }
+  }
+  return -1;
+}
+
+3:
+a.
+klassens fields deklarerer variabler som globale variabler. Dette vil si
+at de er tilgjengelige over alt i klassen.
+Members er et array med stringer som lagrer medlemmer.
+count viser antall medlemmer.
+max skal holde maks antall medlemmer
+
+b.
+klassens konstruktør er det som kjøres når klasse opprettes.
+konstruktøren tar et argument, som sier hvor mange medlemmer det maks
+kan være. Konstruktøren setter count til 0 fordi ingen medlemmer har
+blitt registrert med en gang objektet opprettes. Det setter også max
+til det tilhørende parameterets verdi. Members initialiseres til et
+String-array med dimensjon lik maks antall medlemmer.
+
+c.
+public void addMember(String name){
+  if((count + 1) >= max){
+    return false;
+  }
+  return true;
+}
+
+d.
+public void printMembers(char firstLetter){
+  for(String member : members){
+    if(member.startsWith(firstLetter)){
+      System.out.println(member);
+    }
+  }
+}
+
+e.
+public class Client{
+  public void clientMethod(){
+    Members m = new Members(4);
+
+    //gammel
+    m.addMember("Olav");
+    m.addMember("Guro");
+    m.addMember("Elon");
+
+    //ny
+    if(m.addMember("Guro")){
+      System.out.println("lagt til!");
+    } else {
+      System.out.println("Ikke lagt til, maksgrense nådd"); 
+    }
+
+    System.out.println("navn på O:");
+    m.printMembers('O');
+
+    System.out.println("navn på G:");
+    m.printMembers('G');
+  }
+}
+
+
+6.
+
+OOOOOØ
+OOOOØØØ
+OOOØØØØØ
+OOØØØØØØØ
+OØØØØØØØØØ
